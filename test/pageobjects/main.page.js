@@ -11,12 +11,16 @@ const page = new Page;
 
 class MainPage extends Page{
 
-
-
     // select Purpose div by class
     get inputPurpose()
     {
         return $('.e7c6503c');
+    }
+    
+    // button to Buy in Purpose main form
+    get inputPurposeOptionToBuy()
+    {
+        return $('._933a9a61._5dd5033c');
     }
 
     // select Location input by class
@@ -65,15 +69,16 @@ class MainPage extends Page{
         await this.findRedirect.click();
     }
 
-    // select purpose to buy
+    // select purpose to buy in main form
     async selectToBuy(){
-        await this.$('.e7c6503c').click().$('_933a9a61._5dd5033c');
+        await this.inputPurpose.click();
+        await this.inputPurposeOptionToBuy.click();
     }
 
 
-    //select purpose to sell
+    //select purpose to sell in main form
     async selectToRent(){
-        await this.$('.e7c6503c').click().$('_933a9a61._5dd5033c._8bfc3747');
+        await this.inputPurpose.click().$('._933a9a61._5dd5033c._8bfc3747').click();
     }
 }
 
